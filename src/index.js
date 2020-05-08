@@ -32,13 +32,12 @@ const photos = [
 
 // Utils
 const FRICTION = 0.95;
-const MASS_FACTOR = 0.00003;
+const MASS_FACTOR = 0.000025;
 
 const MIN_RADIUS_IMAGE = 100;
 const MAX_RADIUS_IMAGE = 150;
 
 const MOUSE_MAGNET_DISTANCE = 300;
-const IMAGES_MINIMUM_DISTANCE = 0;
 
 const random = (min = 0, max = 1) => {
   return Math.random() * (max - min) + min;
@@ -186,21 +185,6 @@ const step = () => {
       image.velocity.x * FRICTION + image.acceleration.x * image.mass;
     image.velocity.y =
       image.velocity.y * FRICTION + image.acceleration.y * image.mass;
-
-    // Collision with container
-    // if (
-    //   image.position.x + image.radius > containerRect.width ||
-    //   image.position.x - image.radius < 0
-    // ) {
-    //   image.velocity.x = -image.velocity.x * FRICTION;
-    // }
-
-    // if (
-    //   image.position.y + image.radius > containerRect.height ||
-    //   image.position.y - image.radius < 0
-    // ) {
-    //   image.velocity.y = -image.velocity.y * FRICTION;
-    // }
 
     image.position.x = image.position.x + image.velocity.x;
     image.position.y = image.position.y + image.velocity.y;
